@@ -1,0 +1,15 @@
+.text-input {
+  height: 36px;
+  padding: 0 8px;
+
+  border: 2px solid var(--neutral500);
+  background-color: var(--neutral0);
+  border-radius: 4px;
+
+  font-size: 18px;
+  color: var(--neutral700);
+
+  &::placeholder {
+    color: var(--neutral500);
+  }
+}

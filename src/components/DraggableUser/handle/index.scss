@@ -1,0 +1,17 @@
+.drag-handle {
+  width: 30px;
+  height: 14px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &__bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--neutral500);
+
+    border-radius: 4px;
+  }
+}

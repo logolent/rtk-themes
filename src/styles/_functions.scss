@@ -1,0 +1,49 @@
+/// Заменяет все вхождения подстроки в строке
+/// https://css-tricks.com/snippets/sass/str-replace-function/
+/// @example
+///   str-replace("String test value", "test", "")
+@function str-replace($string, $search, $replacer) {
+  $index: str-index($string, $search);
+
+  @if $index {
+    $searchTermLength: str-length($search);
+    $restString: str-slice($string, $index + $searchTermLength);
+    @return str-slice($string, 1, $index - 1)
+      + $replacer
+      + str-replace($restString, $search, $replacer);
+  }
+
+  @return $string;
+}
+
+@function trim-var($string) {
+  $string: str-replace($string, "var(", "");
+  $string: str-replace($string, ")", "");
+  @return $string;
+}
+
+/// Возвращает цвет с измененной прозрачностью
+/// Работает только с переменными объявленными через defineColor
+/// @example
+///   background-color: appAlpha(var(--theme-color100), 0.6)
+@function appAlpha($color, $opacity) {
+  $property: trim-var($color);
+
+  $hue: var(#{$property + "-h"});
+  $saturation: var(#{$property + "-s"});
+  $lightness: var(#{$property + "-l"});
+  @return hsla($hue, $saturation, $lightness, $opacity);
+}
+
+/// Возвращает цвет с изменным значением светлоты
+/// Работает только с переменными объявленными через defineColor
+/// @example
+///   background-color: appLighten(var(--theme-color100), 1.2)
+@function appLighten($color, $lightnessModifier) {
+  $property: trim-var($color);
+
+  $hue: var(#{$property + "-h"});
+  $saturation: var(#{$property + "-s"});
+  $lightness: var(#{$property + "-l"});
+  @return hsl($hue, $saturation, calc(#{$lightness} * #{$lightnessModifier}));
+}

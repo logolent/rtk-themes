@@ -1,0 +1,13 @@
+.themes-container {
+  padding: 16px;
+
+  border-radius: 8px;
+  background-color: var(--neutral0);
+  box-shadow: var(--common-shadow);
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  color: var(--neutral900);
+}

@@ -1,0 +1,60 @@
+@use "mixins" as m;
+@use "./constants" as consts;
+
+/* цвет темы */
+:root {
+  [data-theme-color="crimson"] {
+    @include m.defineColor(--theme-color100, consts.$crimson100);
+    @include m.defineColor(--theme-color200, consts.$crimson200);
+  }
+
+  [data-theme-color="blue"] {
+    @include m.defineColor(--theme-color100, consts.$blue100);
+    @include m.defineColor(--theme-color200, consts.$blue200);
+  }
+
+  [data-theme-color="orange"] {
+    @include m.defineColor(--theme-color100, consts.$orange100);
+    @include m.defineColor(--theme-color200, consts.$orange200);
+  }
+}
+
+/* цвет фона */
+:root {
+  [data-theme-background="neutral"] {
+    @include m.defineColor(--theme-background, consts.$day200);
+
+    &[data-theme-dark] {
+      @include m.defineColor(--theme-background, consts.$night200);
+    }
+  }
+}
+
+/* ночная/дневная тема */
+:root {
+  @include m.defineColor(--neutral0, consts.$day0);
+  @include m.defineColor(--neutral200, consts.$day200);
+  @include m.defineColor(--neutral300, consts.$day300);
+  @include m.defineColor(--neutral400, consts.$day400);
+  @include m.defineColor(--neutral500, consts.$day500);
+  @include m.defineColor(--neutral600, consts.$day600);
+  @include m.defineColor(--neutral700, consts.$day700);
+  @include m.defineColor(--neutral800, consts.$day800);
+  @include m.defineColor(--neutral900, consts.$day900);
+
+  --common-shadow: #{consts.$common-shadow-day};
+
+  [data-theme-dark] {
+    @include m.defineColor(--neutral0, consts.$night0);
+    @include m.defineColor(--neutral200, consts.$night200);
+    @include m.defineColor(--neutral300, consts.$night300);
+    @include m.defineColor(--neutral400, consts.$night400);
+    @include m.defineColor(--neutral500, consts.$night500);
+    @include m.defineColor(--neutral600, consts.$night600);
+    @include m.defineColor(--neutral700, consts.$night700);
+    @include m.defineColor(--neutral800, consts.$night800);
+    @include m.defineColor(--neutral900, consts.$night900);
+
+    --common-shadow: #{consts.$common-shadow-night};
+  }
+}

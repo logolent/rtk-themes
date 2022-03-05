@@ -1,0 +1,22 @@
+@use "../../styles/functions" as f;
+
+.app {
+  min-height: 100vh;
+
+  background-color: var(--theme-background);
+
+  [data-theme-background="color"] & {
+    background-color: f.appAlpha(var(--theme-color100), 0.08);
+  }
+
+  &__content {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 600px 1fr;
+    gap: 24px;
+
+    padding: 40px 20px;
+  }
+}

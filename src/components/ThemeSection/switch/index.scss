@@ -1,0 +1,17 @@
+.theme-section--colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .theme {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 4px;
+    cursor: pointer;
+
+    &--selected {
+      outline: 2px solid var(--theme-color200);
+    }
+  }
+}

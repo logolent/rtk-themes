@@ -1,0 +1,25 @@
+@use './functions' as f;
+
+/// Объявляет переменную цвета в формате hsl и еще 3 переменные с постфиксами -h/-s/-l
+/// https://codyhouse.co/blog/post/how-to-combine-sass-color-functions-and-css-variables
+/// @example
+///   @include defineColor(--color, #ffffff);
+///   @include defineColor(--color, $white-color);
+/// @output
+///   --color: hsl(...)
+///   --color-h: ...deg
+///   --color-s: ...%
+///   --color-l: ...%
+@mixin defineColor($color-name, $color) {
+  $hue: round(hue($color));
+  $saturation: round(saturation($color));
+  $lightness: round(lightness($color));
+
+  $hsl: "hsl(#{$hue}, #{$saturation}, #{$lightness})";
+  $hsl: f.str-replace($hsl, '"', "");
+
+  #{$color-name}: #{$hsl};
+  #{$color-name}-h: #{$hue};
+  #{$color-name}-s: #{$saturation};
+  #{$color-name}-l: #{$lightness};
+}

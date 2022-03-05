@@ -1,0 +1,14 @@
+.users-container {
+  width: 100%;
+  height: min-content;
+
+  padding: 16px;
+
+  border-radius: 8px;
+  background-color: var(--neutral0);
+  box-shadow: var(--common-shadow);
+
+  &__list {
+    margin-top: 24px;
+  }
+}

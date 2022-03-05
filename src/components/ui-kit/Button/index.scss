@@ -1,0 +1,61 @@
+@use "../../../styles/functions" as f;
+
+.button {
+  --height: 36px;
+  --text-color: white;
+  --text-size: 18px;
+  --text-weight: 400;
+
+  height: var(--height);
+  padding: 0 8px;
+  background-color: var(--theme-color100);
+
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+
+  color: var(--text-color);
+  font-size: var(--text-size);
+  font-weight: var(--text-weight);
+
+  border-radius: 4px;
+  border: 2px solid var(--border-color);
+  transition: 0.2s all;
+
+  &:hover {
+    background-color: f.appAlpha(var(--theme-color100), 0.8);
+  }
+
+  &:active {
+    transition: 0s background-color;
+    background-color: f.appAlpha(var(--theme-color100), 0.7);
+  }
+}
+
+/* variant */
+.button--outlined {
+  --text-color: var(--theme-color100);
+  --border-color: var(--theme-color100);
+  background-color: var(--neutral0);
+
+  &:hover {
+    --text-color: white;
+    --border-color: transparent;
+    background-color: var(--theme-color100);
+  }
+}
+
+/* type */
+.button--small {
+  --height: 30px;
+  --text-size: 16px;
+}
+.button--medium {
+  --height: 36px;
+  --text-size: 18px;
+}
+.button--big {
+  --height: 44px;
+  --text-size: 22px;
+  --text-weight: 600;
+}
